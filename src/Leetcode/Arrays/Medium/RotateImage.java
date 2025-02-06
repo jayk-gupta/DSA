@@ -17,6 +17,7 @@ public class RotateImage {
     }
 
     public static void rotate(int[][] matrix) {
+//        find transpose of matrix
         for (int i = 0; i < matrix.length; i++) {
             for (int j = i + 1; j < matrix.length; j++) {
                 int temp = matrix[i][j];
