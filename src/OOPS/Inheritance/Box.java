@@ -1,10 +1,20 @@
 package OOPS.Inheritance;
 
 public class Box {
-    double l;
+//  encapsulation: hide the complexity of the system
+//  data hiding : data security
+   private double l;
     double h;
     double b;
     double weight;
+
+// All the static methods are inherited
+//    Method in parent class will always run no matter from which object you call it
+//    Bcoz it does not depend on object
+    static void greeting(){
+        System.out.println("I am in box. Greetings!!");
+    }
+
 
     public Box(double l, double h, double b) {
         this.l = l;

@@ -17,6 +17,8 @@ public class Main {
 //        BoxWeight box4 = new Box(2,3,4);j
 
         BoxPrice box = new BoxPrice(5,200,4);
+   Box.greeting(); // you can inherit but you cannot override
+
     }
 }
 // parent will not be able to access the child properties
