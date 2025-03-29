@@ -8,11 +8,12 @@ public class Main {
         list.insertFirst(3);
         list.insertLast(9);
         list.insertLast(12);
-        list.insertAtIndex(3,32);
+//        list.insertAtIndex(3,32);
 //LinkedList$Node@5f184fc6,
         list.displayList();
 //        System.out.println(list.deleteFirst());
-        System.out.println(list.deleteLast());
+//        System.out.println(list.deleteLast());
+        System.out.println(list.deleteAtIndex(2));
         list.displayList();
     }
 }
