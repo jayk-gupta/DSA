@@ -57,7 +57,6 @@ public class LinkedList {
     }
 
 
-
     // DELETE
 //    Delete first
     public int deleteFirst() {
@@ -84,15 +83,7 @@ public class LinkedList {
         return val;
     }
 
-    //    get node
-    public Node get(int index) {
-        Node node = head;
-        for (int i = 0; i < index; i++) {
-            node = node.next;
-        }
-        return node;
-    }
-//    Delete at index
+    //    Delete at index
     public int deleteAtIndex(int index) {
         if (index == 0) {
             return deleteFirst();
@@ -103,11 +94,31 @@ public class LinkedList {
         }
 //        index
 //   go till index - 1 node
-        Node prev= get(index-1);
+        Node prev = get(index - 1);
         int val = prev.next.value; // 7
         prev.next = prev.next.next; // 9
         size--;
         return val;
+    }
+
+    /////////////////////////////////////////////////////////
+//    get node
+    public Node get(int index) {
+        Node node = head;
+        for (int i = 0; i < index; i++) {
+            node = node.next;
+        }
+        return node;
+    }
+
+    public Node find(int value) {
+        Node node = head;
+//        while we reach end of list
+        while (node != null) {
+            if (node.value == value) return node;
+            node = node.next;
+        }
+        return node;
     }
 
     ////////////////////////////////////////////////////
