@@ -1,5 +1,7 @@
 package LinkedList.Basics.DoublyLinkedList;
 
+import java.util.NoSuchElementException;
+
 public class DoublyLinkedList {
     private Node head;
     private Node tail;
@@ -61,6 +63,70 @@ public class DoublyLinkedList {
 
     }
 
+    // DELETE
+//    Delete first
+    public int deleteFirst() {
+//        if list is empty
+        if (head == null) {
+            throw new NoSuchElementException("List is empty");
+        }
+//        store node value
+        int val = head.value;
+//        if there is only one node
+        if (head == tail) {
+            head = null;
+            tail = null;
+        } else {
+            head = head.next;
+            head.prev = null;
+        }
+//        return deleted node
+        return val;
+    }
+
+    // Delete last
+    public int deleteLast() {
+        if (size <= 1) {
+            return deleteFirst();
+        }
+        int val = tail.value;
+        tail = tail.prev;
+        tail.next = null;
+        size--;
+        return val;
+    }
+    public int deleteAtIndex(int index){
+        if (index == 0) {
+            return deleteFirst();
+        }
+
+        if (index == size) {
+            return deleteLast();
+        }
+        Node node = get(index-1);
+        int val = node.value;
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
+        size--;
+        return val;
+    }
+// get
+    public Node get(int index) {
+        Node node = head;
+        for (int i = 0; i < index; i++) {
+            node = node.next;
+        }
+        return node;
+    }
+// find
+    public Node find(int value){
+        Node node = head;
+        while (node!=null){
+            if(node.value == value) return node;
+            node = node.next;
+        }
+        return node;
+    }
     //////////////////////////////////////////////////////
     public void displayList() {
         Node temp = head;

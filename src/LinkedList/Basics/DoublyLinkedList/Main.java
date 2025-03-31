@@ -7,7 +7,11 @@ public class Main {
         l.insertFirst(12);
         l.insertLast(2);
         l.insertLast(3);
-        l.insertAtIndex(2,4);
+//        l.insertAtIndex(2,4);
+        l.displayList();
+//        l.deleteFirst();
+//        l.deleteLast();
+        l.deleteAtIndex(3);
         l.displayList();
     }
 }
