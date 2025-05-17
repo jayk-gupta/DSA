@@ -12,8 +12,8 @@ public class TwoSum {
     }
     public static int[] twoSum(int[] nums, int target) {
         for (int i = 0; i < nums.length; i++) {
-            for (int j = 0; j < nums.length; j++) {
-                if(nums[j] == target-nums[i] && i != j){
+            for (int j = i+1; j < nums.length; j++) {
+                if(nums[j] == target-nums[i] ){
                     return new int[] {i,j};
                 }
             }
@@ -21,15 +21,13 @@ public class TwoSum {
         return new int[] {-1,-1};
     }
     public static int[] twoSum2(int[] nums, int target) {
-        HashMap<Integer,Integer> map = new HashMap<>();
+        HashMap<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            map.put(nums[i],i);
-        }
-        for (int i = 0; i < nums.length; i++) {
-            int pair = target-nums[i];
-            if(map.containsKey(pair) && map.get(pair) != i){
-                return new int[] {i,map.get(pair)};
+            int pair = target - nums[i];
+            if (map.containsKey(pair)) {
+                return new int[] {map.get(pair), i};
             }
+            map.put(nums[i], i);
         }
         return new int[] {-1,-1};
     }
