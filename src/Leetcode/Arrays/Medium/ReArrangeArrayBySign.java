@@ -1,8 +1,5 @@
 package Leetcode.Arrays.Medium;
-
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class ReArrangeArrayBySign {
     public static void main(String[] args) {
@@ -10,9 +7,14 @@ public class ReArrangeArrayBySign {
         int[] ans= rearrangeArray(nums);
         System.out.println(Arrays.toString(ans));
     }
+//Brute force
+//    create two new arrays
+//    store + and - in each
+//    create new ans array
+//    take one one element from arrays
 
+//    optimized
     public static int[] rearrangeArray(int[] nums) {
-
         int posIndex = 0, negIndex = 1;
         int[] ans = new int[nums.length];
         for (int i = 0; i < nums.length; i++) {
