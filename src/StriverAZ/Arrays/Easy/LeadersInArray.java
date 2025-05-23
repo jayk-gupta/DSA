@@ -30,7 +30,7 @@ public static ArrayList<Integer> leaders2(int[] nums) {
     ArrayList<Integer> list = new ArrayList<>();
    int max = Integer.MIN_VALUE;
     for (int i = nums.length-1; i >=0 ; i--) {
-        if(nums[i]> max){
+        if(nums[i]>= max){
             list.add(nums[i]);
             max = nums[i];
         }
