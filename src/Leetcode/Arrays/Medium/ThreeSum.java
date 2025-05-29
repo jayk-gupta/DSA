@@ -15,35 +15,46 @@ public class ThreeSum {
     }
 
     public static List<List<Integer>> threeSum2(int[] nums) {
+        // This will store the final list of triplets that sum to 0
         List<List<Integer>> result = new ArrayList<>();
+        // Step 1: Sort the array to enable two-pointer technique
         Arrays.sort(nums);
-
+        // Step 2: Loop through the array
+        // We stop at length - 2 because we need at least 3 elements for a triplet
         for (int i = 0; i < nums.length-2; i++) {
-            // Skip duplicates for i
+            // Step 2a: Skip duplicate values for `i` to avoid duplicate triplets
             if (i > 0 && nums[i] == nums[i - 1]) continue;
-            int left = i + 1;
-            int right = nums.length - 1;
+
+
+            // Step 3: Use two pointers to find remaining two numbers
+            int left = i + 1;                  // Start of the subarray
+            int right = nums.length - 1;       // End of the subarray
+            // Step 4: Move the two pointers toward each other
             while (left < right) {
-// finding sum
+                // Step 4a: Calculate the sum of the current triplet
                 int sum = nums[i] + nums[left] + nums[right];
-//                if sum is 0
+//              Step 4b: Check if the sum is zero
                 if (sum == 0) {
+                    // Found a valid triplet, add to result list
                     result.add(Arrays.asList(nums[i], nums[left], nums[right]));
+                    // Move both pointers inward to continue searching
                     left++;
                     right--;
 
-//                    skip duplicates for left
+                    // Step 4c: Skip duplicates for `left` pointer
                     while(left < right && nums[left] == nums[left-1]){
                         left++;
                     }
-//                    skip duplicates for right
+                    // Step 4d: Skip duplicates for `right` pointer
                     while(left < right && nums[right] == nums[right+1]){
                         right--;
                     }
                 } else if (sum < 0) {
-                    left++;
+                    // Step 4e: If sum is less than 0, move `left` to increase sum
+                    left++; // increase sum
                 } else {
-                    right--;
+                    // Step 4f: If sum is greater than 0, move `right` to decrease sum
+                    right--; // decrease sum
                 }
             }
         }
