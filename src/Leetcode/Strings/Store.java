@@ -22,6 +22,15 @@ public class Store {
 //        individual cost = 3 unit
 //        multiple product,same store cost = 9
 //        multiple product same store cost = 9
-
+        int totalCost = 0;
+        for (var e : m.entrySet()) {
+            int NumberOfProducts = e.getValue().size();
+            if (NumberOfProducts < 3) {
+                totalCost += NumberOfProducts * 3;
+            } else {
+                totalCost += 9;
+            }
+        }
+        System.out.println(totalCost);
     }
 }
