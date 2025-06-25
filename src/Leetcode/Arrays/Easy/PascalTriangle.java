@@ -25,14 +25,16 @@ public class PascalTriangle {
         for (int i = 2; i < numRows; i++) {
             List<Integer> row = new ArrayList<>();
             row.add(1);
-            int k=0,j=1;
-            while (j<i){
-                int el =  result.getLast().get(k) + result.getLast().get(j);
+
+            List<Integer> lastRow = result.get(result.size() - 1); // replaces getLast()
+            int k = 0, j = 1;
+            while (j < i) {
+                int el = lastRow.get(k) + lastRow.get(j);
                 row.add(el);
                 k++;
                 j++;
             }
-            row.addLast(1);
+            row.add(1); // replaces addLast(1)
             result.add(row);
         }
         return result;
