@@ -6,7 +6,8 @@ import java.util.HashMap;
 public class LongestSubarraySumWithSumK {
     public static void main(String[] args) {
 //        int[] arr = {4, 1, 1, 1, 2, 3, 5};
-        int[] arr =   {1, 2, 3, -2, 5};
+//        int[] arr = {4, -2, -1, 3, 1, -5, 2, 6};
+        int[] arr = {1, 2, 3, -2, 5, -3, 1, 2};
 
         System.out.println(lenOfLongestSubarr(arr, 5));
     }
@@ -41,21 +42,24 @@ public class LongestSubarraySumWithSumK {
         HashMap<Integer, Integer> prefixMap = new HashMap<>();
 
         int sum = 0;
-        int maxLen = 0;
+//        int maxLen = 0;
+        int totalSubarrays = 0;
 
         for (int i = 0; i < nums.length; i++) {
             sum += nums[i];
 
             // Case 1: Entire subarray from 0 to i adds up to k
             if (sum == k) {
-                maxLen = i + 1;
+//                return the total number of subarrays whose sum equals to k
+                totalSubarrays++;
             }
 
             // Case 2: Check if there's a subarray ending at i that sums to k
             if (prefixMap.containsKey(sum - k)) {
                 int prevIndex = prefixMap.get(sum - k);
                 int len = i - prevIndex;
-                maxLen = Math.max(maxLen, len);
+//                maxLen = Math.max(maxLen, len);
+//                maxLen = Math.max(maxLen, len);
             }
 
             // Store the first occurrence of a prefix sum
@@ -64,7 +68,7 @@ public class LongestSubarraySumWithSumK {
             }
         }
 
-        return maxLen;
+        return totalSubarrays;
     }
 
 }
