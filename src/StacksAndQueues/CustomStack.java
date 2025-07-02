@@ -6,6 +6,7 @@ public class CustomStack {
     private static final int DEFAULT_SIZE = 10;
     int ptr = -1;
 
+
     public CustomStack() {
 //         CALL CustomStack CONSTRUCTOR
         this(DEFAULT_SIZE);
@@ -42,7 +43,7 @@ public class CustomStack {
     }
 
 
-    private boolean isFull() {
+  public boolean isFull() {
         return ptr == data.length - 1;
     }
 
